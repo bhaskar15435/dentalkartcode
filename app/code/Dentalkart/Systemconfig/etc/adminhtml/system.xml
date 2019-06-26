@@ -15,6 +15,9 @@
                 <field id="notification_sms" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>insert mobile number of autherised person</label>
                 </field>
+                <field id="demo" translate="label" type="select" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+                  <label>put yes or no</label>
+                </field>
             </group>
         </section>
     </system>

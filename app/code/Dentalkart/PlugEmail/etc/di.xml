@@ -1,6 +1,7 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
-    <type name="Magento\CatalogInventory\Api\RegisterProductSaleInterface">
-        <plugin name="Dentalkart_PlugEmail_Plugin" type="Dentalkart\PlugEmail\Plugin\ExamplePlugin" sortOrder="2" />
+    <type name="Magento\InventorySalesApi\Api\IsProductSalableForRequestedQtyInterface">
+        <!-- <!``plugin name="Dentalkart_PlugEmail_Plugin" type="Dentalkart\PlugEmail\Plugin\ExamplePlugin" sortOrder="2" /> -->
+        <plugin name="product_salable_result" type="Dentalkart\PlugEmail\Plugin\ExamplePlugin" sortorder="1"/>
     </type>
 </config>
