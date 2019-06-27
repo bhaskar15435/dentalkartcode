@@ -32,7 +32,9 @@ class ExamplePlugin
   protected $getStockItemConfiguration;
 
   protected $stockItemInterface;
-  protected $datetime;
+  //protected $datetime;
+
+  protected $registry;
 
   public function __construct(
     \Magento\Framework\Mail\Template\TransportBuilder $transportBuilder,
@@ -41,9 +43,10 @@ class ExamplePlugin
     GetStockItemDataInterface $getStockItemData,
     GetReservationsQuantityInterface $getReservationsQuantity,
     \Magento\Framework\App\Config\Storage\WriterInterface $configWriter,
+    \Magento\Framework\Registry $registry,
     // GetStockItemConfigurationInterface $getStockItemConfiguration,
-    \Magento\CatalogInventory\Api\StockRegistryInterface $stockRegistryInterface,
-    \Magento\Framework\Stdlib\DateTime\DateTime $datetime
+    \Magento\CatalogInventory\Api\StockRegistryInterface $stockRegistryInterface
+    //\Magento\Framework\Stdlib\DateTime\DateTime $datetime
     // ProductSalabilityErrorInterfaceFactory $productSalabilityErrorFactory,
     // ProductSalableResultInterfaceFactory $productSalableResultFactory
   ) {
@@ -52,9 +55,10 @@ class ExamplePlugin
     $this->scopeConfig = $scopeConfig;
     $this->getStockItemData = $getStockItemData;
     $this->getReservationsQuantity = $getReservationsQuantity;
-    $this->stockRegistryInterface=$stockRegistryInterface;
-    $this->datetime=$datetime;
+     $this->stockRegistryInterface=$stockRegistryInterface;
+    // $this->datetime=$datetime;
     $this->configWriter=$configWriter;
+    $this->registry= $registry;
     // $this->productSalabilityErrorFactory = $productSalabilityErrorFactory;
     // $this->productSalableResultFactory = $productSalableResultFactory;
 
@@ -67,11 +71,26 @@ class ExamplePlugin
     $qtyWithReservation = $stockItemData[GetStockItemDataInterface::QUANTITY] +
         $this->getReservationsQuantity->execute($sku, $stockId);
     $thresholdqyt=$this->scopeConfig->getValue(self::XML_PATH_NOTIFY_THRESHOLD_QYT,$storeScope);
+    if(is_empty($this->register->registry($key))){
+      $this->register->register('key','value');
+      $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/xyz.log');
+      $logger = new \Zend\Log\Logger();
+      $logger->addWriter($writer);
+      $logger->info($qtyWithReservation);
+      $logger->info($thresholdqyt);
+    }
+    else{
+      $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/xyz.log');
+      $logger = new \Zend\Log\Logger();
+      $logger->addWriter($writer);
+      $logger->info($qtyWithReservation);
+      $logger->info('foo');
+    }
    // $qtyLeftInStock = $qtyWithReservation - $getStockItemConfiguration->getMinQty() - $requestedQty;
     //$stockItemInterface=$this->stockItemInterface->getLowStockDate();
 
     //$model1=$this->stockRegistryInterface->getStockItemBySku($sku)->getItemId();
-    $model=$this->stockRegistryInterface->getStockItemBySku($sku);
+    // $model=$this->stockRegistryInterface->getStockItemBySku($sku);
     // // //$model->load($model1);
     // $model->setLowStockDate($this->datetime->gmtDate());
     // //$model->save();
@@ -79,44 +98,40 @@ class ExamplePlugin
     // $this->stockRegistryInterface->updateStockItemBySku($sku, $model);
 
 
-     $control=$this->scopeConfig->getValue(self::XML_PATH_CONTROL,$storeScope);
+     // $control=$this->scopeConfig->getValue(self::XML_PATH_CONTROL,$storeScope);
     // $model->save();
-    $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/xyz.log');
-    $logger = new \Zend\Log\Logger();
-    $logger->addWriter($writer);
-    // $logger->info($qtyWithReservation);
-    // $logger->info($thresholdqyt);
-  // if($thresholdqyt>=$qtyWithReservation && $control=='no'){
+
+  // if($thresholdqyt>=($qtyWithReservation-$requestedQty) && $control=='no'){
   //   $this->configWriter->delete('cataloginventory/item_options/demo',$scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,$scopeId = 0);
   //   $this->configWriter->save('cataloginventory/item_options/demo','yes',$scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,$scopeId = 0);
   //   $control=$this->scopeConfig->getValue(self::XML_PATH_CONTROL,$storeScope);
   //   $logger->info('1'.$control);
   // }
-  // elseif($thresholdqyt>=$qtyWithReservation && $control=='yes'){
+  // elseif($thresholdqyt>=($qtyWithReservation-$requestedQty) && $control=='yes'){
   //   $logger->info("main hun don");
   //   //$this->configWriter->save('cataloginventory/item_options/demo','',$scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,$scopeId = 0);
   //   $control=$this->scopeConfig->getValue(self::XML_PATH_CONTROL,$storeScope);
   // }
-  // elseif ($thresholdqyt<$qtyWithReservation && $control=='no') {
+  // elseif ($thresholdqyt<($qtyWithReservation-$requestedQty) && $control=='no') {
   //   $this->configWriter->delete('cataloginventory/item_options/demo',$scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,$scopeId = 0);
   //   $this->configWriter->save('cataloginventory/item_options/demo','yes',$scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,$scopeId = 0);
   //   $logger->info('2'.$control);
   //   $control=$this->scopeConfig->getValue(self::XML_PATH_CONTROL,$storeScope);
   // }
   //
-  // elseif ($qtyWithReservation>$thresholdqyt && $control=='yes') {
+  // elseif (($qtyWithReservation-$requestedQty)>$thresholdqyt && $control=='yes') {
   //   $logger->info('3'.$control);
   // }
-  // elseif (is_null($control)) {
-  //   $this->configWriter->delete('cataloginventory/item_options/demo',$scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,$scopeId = 0);
-  //   $this->configWriter->save('cataloginventory/item_options/demo','no',$scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,$scopeId = 0);
-  //   $control=$this->scopeConfig->getValue(self::XML_PATH_CONTROL,$storeScope);
-  // }
+  // // elseif (is_null($control)) {
+  // //   $this->configWriter->delete('cataloginventory/item_options/demo',$scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,$scopeId = 0);
+  // //   $this->configWriter->save('cataloginventory/item_options/demo','no',$scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,$scopeId = 0);
+  // //   $control=$this->scopeConfig->getValue(self::XML_PATH_CONTROL,$storeScope);
+  // // }
   // else {
   //   $logger->info('4'.$control);
   // }
-  //$this->configWriter->delete('cataloginventory/item_options/demo',$scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,$scopeId = 0);
-  $this->configWriter->save('cataloginventory/item_options/demo','yes',$scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,$scopeId = 0);
+  // $this->configWriter->delete('cataloginventory/item_options/demo',$scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,$scopeId = 0);
+  // $this->configWriter->save('cataloginventory/item_options/demo','no',$scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,$scopeId = 0);
 
     // $sender = [
     //   'name' => "bhaskar",
