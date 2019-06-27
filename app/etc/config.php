@@ -6,6 +6,7 @@ return [
         'Magento_Theme' => 1,
         'Dentalkart_Feedback' => 1,
         'Dentalkart_PlugEmail' => 1,
+        'Dentalkart_PlugEmailme' => 1,
         'Dentalkart_Systemconfig' => 1,
         'Magento_Backend' => 1,
         'Magento_Variable' => 1,

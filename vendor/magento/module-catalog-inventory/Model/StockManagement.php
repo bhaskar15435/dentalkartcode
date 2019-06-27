@@ -137,7 +137,6 @@ class StockManagement implements StockManagementInterface, RegisterProductSaleIn
         }
         $this->qtyCounter->correctItemsQty($registeredItems, $websiteId, '-');
         $this->getResource()->commit();
-
         return $fullSaveItems;
     }
 
