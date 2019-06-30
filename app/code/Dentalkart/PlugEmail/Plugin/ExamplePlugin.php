@@ -19,11 +19,11 @@ class ExamplePlugin
 
   const XML_PATH_CONTROL='cataloginventory/item_options/demo';
 
-  // protected $_transportBuilder;
+  protected $_transportBuilder;
 
-  // protected $inlineTranslation;
-  //
-   protected $scopeConfig;
+  protected $inlineTranslation;
+
+  protected $scopeConfig;
 
   protected $getStockItemData;
 
@@ -47,7 +47,7 @@ class ExamplePlugin
     // ProductSalabilityErrorInterfaceFactory $productSalabilityErrorFactory,
     // ProductSalableResultInterfaceFactory $productSalableResultFactory
   ) {
-    $this->_transportBuilder = $transportBuilder;
+    // $this->_transportBuilder = $transportBuilder;
     // $this->inlineTranslation = $inlineTranslation;
     $this->scopeConfig = $scopeConfig;
     $this->getStockItemData = $getStockItemData;
@@ -84,7 +84,7 @@ class ExamplePlugin
     $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/xyz.log');
     $logger = new \Zend\Log\Logger();
     $logger->addWriter($writer);
-    $logger->info($qtyWithReservation);
+    // $logger->info($qtyWithReservation);
     // $logger->info($thresholdqyt);
   // if($thresholdqyt>=$qtyWithReservation && $control=='no'){
   //   $this->configWriter->delete('cataloginventory/item_options/demo',$scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,$scopeId = 0);
@@ -118,38 +118,38 @@ class ExamplePlugin
   //$this->configWriter->delete('cataloginventory/item_options/demo',$scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,$scopeId = 0);
   $this->configWriter->save('cataloginventory/item_options/demo','yes',$scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT,$scopeId = 0);
 
-    $sender = [
-      'name' => "bhaskar",
-      'email' => "bhaskar@dentalkart.com",
-     ];
-
-    $emails=$this->scopeConfig->getValue(self::XML_PATH_EMAIL_RECIPIENT, $storeScope);
-    $emailarray=explode(',',$emails);
-
-
-
-
-
-      foreach($emailarray as $email){
-      $postObject=['name' => 'bhaskar','email' =>'bhaskar@dentalkart.com','test' => 'product with '.$sku.' is below the threshold quantity.'];
-      $transport = $this->_transportBuilder
-      ->setTemplateIdentifier('send_email_email_template') // this code we have mentioned in the email_templates.xml
-      ->setTemplateOptions(
-          [
-            'area' => \Magento\Framework\App\Area::AREA_FRONTEND, // this is using frontend area to get the template file
-            'store' => \Magento\Store\Model\Store::DEFAULT_STORE_ID,
-          ]
-        )
-          ->setTemplateVars(['data' => $postObject])
-          ->setFrom($sender)
-          ->addTo($email)
-          ->getTransport();
-          $transport->sendMessage();
-          $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/xyz.log');
-          $logger = new \Zend\Log\Logger();
-          $logger->addWriter($writer);
-          $logger->info($email);
-        }
+    // $sender = [
+    //   'name' => "bhaskar",
+    //   'email' => "bhaskar@dentalkart.com",
+    //  ];
+    //
+    // $emails=$this->scopeConfig->getValue(self::XML_PATH_EMAIL_RECIPIENT, $storeScope);
+    // $emailarray=explode(',',$emails);
+    //
+    //
+    //
+    //
+    //
+    //   foreach($emailarray as $email){
+    //   $postObject=['name' => 'bhaskar','email' =>'bhaskar@dentalkart.com','test' => 'product with '.$sku.' is below the threshold quantity.'];
+    //   // $transport = $this->_transportBuilder
+    //   // ->setTemplateIdentifier('send_email_email_template') // this code we have mentioned in the email_templates.xml
+    //   // ->setTemplateOptions(
+    //   //     [
+    //   //       'area' => \Magento\Framework\App\Area::AREA_FRONTEND, // this is using frontend area to get the template file
+    //   //       'store' => \Magento\Store\Model\Store::DEFAULT_STORE_ID,
+    //   //     ]
+    //   //   )
+    //   //     ->setTemplateVars(['data' => $postObject])
+    //   //     ->setFrom($sender)
+    //   //     ->addTo($email)
+    //   //     ->getTransport();
+    //   //     $transport->sendMessage();
+    //       $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/xyz.log');
+    //       $logger = new \Zend\Log\Logger();
+    //       $logger->addWriter($writer);
+    //       $logger->info($email);
+        // }
         return $items;
     }
 
