@@ -4,7 +4,6 @@ return [
         'Magento_Store' => 1,
         'Magento_Directory' => 1,
         'Magento_Theme' => 1,
-        'Dentalkart_BulkOrder' => 0,
         'Dentalkart_Feedback' => 1,
         'Dentalkart_Lowstocknotify' => 1,
         'Magento_Inventory' => 0,
