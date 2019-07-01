@@ -18,7 +18,7 @@ class Detail extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 	*/
    protected function _construct()
    {
-	   $this->_init('dentalkart_stockalert_detail' , 'id');
+	   $this->_init('dentalkart_stock_alert' , 'id');
    }
 
 }

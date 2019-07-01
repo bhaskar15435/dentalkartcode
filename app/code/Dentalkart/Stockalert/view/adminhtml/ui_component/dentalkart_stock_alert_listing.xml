@@ -118,7 +118,7 @@
             </argument>
         </column>
 
-        <!-- <column name="expected_price">
+        <column name="product_add_date">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -128,12 +128,12 @@
                             <item name="required-entry" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="label" xsi:type="string" translate="true">Expected Price</item>
+                    <item name="label" xsi:type="string" translate="true">date added</item>
                 </item>
             </argument>
         </column>
 
-        <column name="expected_quantity">
+        <!--<column name="expected_quantity">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -163,7 +163,7 @@
             </argument>
         </column>
 
-        <!-- <column name="product_price">
+        <column name="customer_name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -173,10 +173,10 @@
                             <item name="required-entry" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="label" xsi:type="string" translate="true">Price</item>
+                    <item name="label" xsi:type="string" translate="true">customer name</item>
                 </item>
             </argument>
-        </column> -->
+        </column>
 
 
         <column name="customer_email">

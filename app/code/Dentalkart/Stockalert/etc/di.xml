@@ -4,8 +4,9 @@
     <preference for="Dentalkart\Stockalert\Api\CodesRepositoryInterface" type="Dentalkart\Stockalert\Model\CodesRepository"/>
     <type name="Dentalkart\Stockalert\Model\ResourceModel\Grid\Detail\Grid\Collection">
         <arguments>
-            <argument name="mainTable" xsi:type="string">dentalkart_Stockalert_detail</argument>
-            <argument name="eventPrefix" xsi:type="string">dentalkart_Stockalert_detail_collection</argument>
+            <argument name="mainTable" xsi:type="string">dentalkart_stock_alert</argument>
+            <argument name="eventPrefix" xsi:type="string">dentalkart_stock_alert_collection</argument>
+            <argument name="eventObject" xsi:type="string">detail_collection</argument>
           <argument name="resourceModel" xsi:type="string">Dentalkart\Stockalert\Model\ResourceModel\Grid\Detail</argument>
           <argument name="attributeinfo" xsi:type="object">Magento\Eav\Model\Entity\Attribute</argument>
         </arguments>
@@ -13,14 +14,14 @@
         <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
             <arguments>
                 <argument name="collections" xsi:type="array">
-                    <item name="dentalkart_Stockalert_detail_listing_data_source" xsi:type="string">Dentalkart\Stockalert\Model\ResourceModel\Grid\Detail\Grid\Collection</item>
+                    <item name="dentalkart_stock_alert_listing_data_source" xsi:type="string">Dentalkart\Stockalert\Model\ResourceModel\Grid\Detail\Grid\Collection</item>
                 </argument>
             </arguments>
         </type>
-  <!-- <virtualType name="Dentalkart\Stockalert\Model\ResourceModel\Grid\Detail\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
-        <arguments>
+  <!-- <virtualType name="Dentalkart\Stockalert\Model\ResourceModel\Grid\Detail\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult"> -->
+        <!-- <arguments>
             <argument name="mainTable" xsi:type="string">dentalkart_Stockalert_detail</argument>
             <argument name="resourceModel" xsi:type="string">Dentalkart\Stockalert\Model\ResourceModel\Grid\Detail</argument>
-        </arguments>
-    </virtualType> -->
+        </arguments> -->
+    <!-- </virtualType> -->
 </config>

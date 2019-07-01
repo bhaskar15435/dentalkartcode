@@ -80,9 +80,9 @@ class CodesRepository implements CodesRepositoryInterface
             $productPriceAttribute= $this->attributeinfo->loadByCode(\Magento\Catalog\Model\Product::ENTITY, \Magento\Catalog\Api\Data\ProductInterface::NAME);
             $productPriceAttributeId = $productPriceAttribute->getAttributeId();
 
-            $this->getSelect()->join(
+            $collection->getSelect()->join(
                 [
-                    'product_alert' => $this->getTable('product_alert_stock')
+                    'product_alert' => $collection->getTable('product_alert_stock')
                 ],
                 "product_alert.product_id = main_table.product_id AND AND product_alert.customer_id =main_table.customer_id",
                 []
@@ -93,8 +93,8 @@ class CodesRepository implements CodesRepositoryInterface
         // $customerAttributeId = $customerAttribute->getAttributeId();
         // $customerAttributeId = 23;
 
-        $this->getSelect()->join(
-            ['customer' => $this->getTable('customer_entity')],
+        $collection->getSelect()->join(
+            ['customer' => $collection->getTable('customer_entity')],
             "customer.entity_id = main_table.customer_id ",
             []
             )->columns(['customer_name' => 'customer.firstname','customer_email' => 'customer.email']);

@@ -150,7 +150,7 @@ class Collection extends DetailCollection  implements SearchResultInterface
     $productNameAttributeId = 73;
     $this->getSelect()->join(
       [
-        'product_varchar' => $this->getTable(' catalog_product_entity_varchar')
+        'product_varchar' => $this->getTable('catalog_product_entity_varchar')
       ],
       "product_varchar.entity_id = main_table.product_id AND product_varchar.attribute_id={$productNameAttributeId}",
       []
@@ -170,7 +170,6 @@ class Collection extends DetailCollection  implements SearchResultInterface
           "customer.entity_id = main_table.customer_id ",
           []
           )->columns(['customer_name' => 'customer.firstname','customer_email' => 'customer.email']);
-          // )->columns(['customer_email' => 'customer.email']);
 
 
         }

@@ -31,14 +31,14 @@ class Detail extends \Magento\Framework\Model\AbstractModel implements \Dentalka
     {
         return $this->getData(self::KEY_CUSTOMER_ID);
     }
-    public function getExpectedQuantity()
-    {
-        return $this->getData(self::KEY_EXPECTED_QUANTITY);
-    }
-    public function getExpectedPrice()
-    {
-        return $this->getData(self::KEY_EXPECTED_PRICE);
-    }
+    // public function getExpectedQuantity()
+    // {
+    //     return $this->getData(self::KEY_EXPECTED_QUANTITY);
+    // }
+    // public function getExpectedPrice()
+    // {
+    //     return $this->getData(self::KEY_EXPECTED_PRICE);
+    // }
     public function getStatus()
     {
         return $this->getData(self::KEY_STATUS);
@@ -60,14 +60,14 @@ class Detail extends \Magento\Framework\Model\AbstractModel implements \Dentalka
     {
         return $this->setData(self::KEY_CUSTOMER_ID, $customer_id);
     }
-    public function setExpectedQuantity($expected_quantity)
-    {
-        return $this->setData(self::KEY_EXPECTED_QUANTITY, $expected_quantity);
-    }
-    public function setExpectedPrice($expected_price)
-    {
-        return $this->setData(self::KEY_EXPECTED_PRICE, $expected_price);
-    }
+    // public function setExpectedQuantity($expected_quantity)
+    // {
+    //     return $this->setData(self::KEY_EXPECTED_QUANTITY, $expected_quantity);
+    // }
+    // public function setExpectedPrice($expected_price)
+    // {
+    //     return $this->setData(self::KEY_EXPECTED_PRICE, $expected_price);
+    // }
     public function setStatus($status)
     {
         return $this->setData(self::KEY_STATUS, $status);
