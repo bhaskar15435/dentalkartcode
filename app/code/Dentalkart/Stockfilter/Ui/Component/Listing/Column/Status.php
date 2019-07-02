@@ -8,8 +8,8 @@ class Status implements \Magento\Framework\Option\ArrayInterface
     public function toOptionArray()
     {
         return [
-            ['value' => 1, 'label' => __('in_stock')],
-            ['value' => 0, 'label' => __('out_of_stock')]
+            ['value' => 1, 'label' => __('In Stock')],
+            ['value' => 0, 'label' => __('Out Of Stock')]
         ];
     }
 }

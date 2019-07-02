@@ -7,11 +7,21 @@
 -->
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <columns name="product_columns" class="Magento\Catalog\Ui\Component\Listing\Columns">
-        <column name="is_in_stock" sortOrder="80">
+        <!-- <column name="is_in_stock" sortOrder="80">
             <settings>
                 <addField>true</addField>
                 <filter>textRange</filter>
                 <label translate="true">stock status</label>
+                <dataType>select</dataType>
+            </settings>
+        </column> -->
+        <column name="is_in_stock" component="Magento_Ui/js/grid/columns/select" sortOrder="100">
+            <settings>
+                <addField>true</addField>
+                <options class="Dentalkart\Stockfilter\Ui\Component\Listing\Column\Status"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Stock Status</label>
             </settings>
         </column>
     </columns>
