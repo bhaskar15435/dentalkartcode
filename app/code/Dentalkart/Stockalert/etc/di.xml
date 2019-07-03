@@ -18,6 +18,16 @@
                 </argument>
             </arguments>
         </type>
+        <item name="advanced-pricing" xsi:type="array">
+            <item name="class" xsi:type="string">Dentalkart\Stockalert\Ui\DataProvider\Product\Form\Modifier\Count</item>
+            <item name="sortOrder" xsi:type="number">90</item>
+        </item>
+
+        <type name="Dentalkart\Stockalert\Ui\DataProvider\Product\Form\Modifier\Count">
+            <arguments>
+                <argument name="scopeName" xsi:type="string">product_form.product_form</argument>
+            </arguments>
+        </type>
   <!-- <virtualType name="Dentalkart\Stockalert\Model\ResourceModel\Grid\Detail\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult"> -->
         <!-- <arguments>
             <argument name="mainTable" xsi:type="string">dentalkart_Stockalert_detail</argument>
