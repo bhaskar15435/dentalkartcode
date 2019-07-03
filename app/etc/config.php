@@ -8,6 +8,7 @@ return [
         'Dentalkart_Lowstocknotify' => 1,
         'Magento_Inventory' => 0,
         'Dentalkart_PlugEmailme' => 1,
+        'Dentalkart_Popup' => 1,
         'Dentalkart_Stockalert' => 1,
         'Magento_Variable' => 1,
         'Dentalkart_Systemconfig' => 1,
