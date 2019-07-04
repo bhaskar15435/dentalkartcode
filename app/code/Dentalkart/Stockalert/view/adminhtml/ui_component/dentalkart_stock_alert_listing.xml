@@ -45,7 +45,7 @@
         <filters name="listing_filters" />
         <paging name="listing_paging"/>
         <exportButton name="export_button"/>
-        <massaction name="listing_massaction">
+        <!-- <massaction name="listing_massaction">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
@@ -64,31 +64,31 @@
                     </item>
                 </argument>
             </action>
-        </massaction>
+        </massaction> -->
     </listingToolbar>
 
     <columns name="spinner_columns">
-        <selectionsColumn name="ids">
+        <!-- <selectionsColumn name="sku">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
                     <item name="resizeDefaultWidth" xsi:type="string">55</item>
-                    <item name="indexField" xsi:type="string">post_id</item>
+                    <item name="indexField" xsi:type="string">SKU</item>
                 </item>
             </argument>
-        </selectionsColumn>
+        </selectionsColumn> -->
 
-        <column name="id">
+        <column name="product_sku">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">textRange</item>
                     <item name="sorting" xsi:type="string">asc</item>
-                    <item name="label" xsi:type="string" translate="true">ID</item>
+                    <item name="label" xsi:type="string" translate="true">Product SKU</item>
                 </item>
             </argument>
         </column>
 
-        <column name="product_id">
+        <!-- <column name="product_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -101,9 +101,9 @@
                     <item name="label" xsi:type="string" translate="true">Product Id</item>
                 </item>
             </argument>
-        </column>
+        </column> -->
 
-        <column name="customer_id">
+        <!-- <column name="customer_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -116,7 +116,7 @@
                     <item name="label" xsi:type="string" translate="true">Customer Id</item>
                 </item>
             </argument>
-        </column>
+        </column> -->
 
         <column name="product_add_date">
             <argument name="data" xsi:type="array">
@@ -128,7 +128,7 @@
                             <item name="required-entry" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="label" xsi:type="string" translate="true">date added</item>
+                    <item name="label" xsi:type="string" translate="true">Date Added</item>
                 </item>
             </argument>
         </column>
@@ -158,7 +158,7 @@
                             <item name="required-entry" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="label" xsi:type="string" translate="true">product_name</item>
+                    <item name="label" xsi:type="string" translate="true">Product Name</item>
                 </item>
             </argument>
         </column>
@@ -173,7 +173,7 @@
                             <item name="required-entry" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="label" xsi:type="string" translate="true">customer name</item>
+                    <item name="label" xsi:type="string" translate="true">Customer Name</item>
                 </item>
             </argument>
         </column>

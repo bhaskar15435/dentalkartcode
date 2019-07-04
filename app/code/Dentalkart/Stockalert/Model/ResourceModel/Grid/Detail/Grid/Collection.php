@@ -171,6 +171,13 @@ class Collection extends DetailCollection  implements SearchResultInterface
           []
           )->columns(['customer_name' => 'customer.firstname','customer_email' => 'customer.email']);
 
+          $this->getSelect()->join(
+            [
+              'product_sku' => $this->getTable('catalog_product_entity')
+            ],
+            "product_sku.entity_id = main_table.product_id ",
+            []
+            )->columns(['product_sku' => 'product_sku.sku']);
 
         }
       }

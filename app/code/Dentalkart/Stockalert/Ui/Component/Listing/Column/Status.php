@@ -8,8 +8,8 @@ class Status implements \Magento\Framework\Option\ArrayInterface
     public function toOptionArray()
     {
         return [
-            ['value' => 1, 'label' => __('email has send')],
-            ['value' => 0, 'label' => __('email not send')]
+            ['value' => 1, 'label' => __('Email Has Send')],
+            ['value' => 0, 'label' => __('Email Has Not Send')]
         ];
     }
 }

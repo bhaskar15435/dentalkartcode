@@ -99,6 +99,14 @@ class CodesRepository implements CodesRepositoryInterface
             []
             )->columns(['customer_name' => 'customer.firstname','customer_email' => 'customer.email']);
 
+       $collection->getSelect()->join(
+            [
+                'product_sku' => $collection->getTable('catalog_product_entity')
+            ],
+            "product_sku.entity_id = main_table.product_id ",
+            []
+            )->columns(['product_sku' => 'product_sku.value']);
+
 
                 foreach ($collection as $item){
                     echo $item->getproduct_name()."\n";
