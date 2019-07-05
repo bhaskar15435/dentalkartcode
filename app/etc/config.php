@@ -10,6 +10,7 @@ return [
         'Dentalkart_PlugEmailme' => 1,
         'Dentalkart_Popup' => 1,
         'Dentalkart_Stockalert' => 1,
+        'Dentalkart_StockalertGraphQl' => 1,
         'Magento_Variable' => 1,
         'Dentalkart_Systemconfig' => 1,
         'Magento_Backend' => 1,
