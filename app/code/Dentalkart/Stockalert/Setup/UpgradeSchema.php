@@ -13,9 +13,9 @@ class UpgradeSchema implements UpgradeSchemaInterface
         $installer->startSetup();
 
         if(version_compare($context->getVersion(), '1.1.0', '<')) {
-            if (!$installer->tableExists('dentalkart_stock_alert')) {
+            if (!$installer->tableExists('product_alert_stock')) {
                 $table = $installer->getConnection()->newTable(
-                    $installer->getTable('dentalkart_stock_alert')
+                    $installer->getTable('product_alert_stock')
                     )
                     ->addColumn(
                         'id',
@@ -53,9 +53,9 @@ class UpgradeSchema implements UpgradeSchemaInterface
                                             ->setComment('Detail Table');
                                             $installer->getConnection()->createTable($table);
                                             $installer->getConnection()->addIndex(
-                                                $installer->getTable('dentalkart_stock_alert'),
+                                                $installer->getTable('product_alert_stock'),
                                                 $setup->getIdxName(
-                                                    $installer->getTable('dentalkart_stock_alert'),
+                                                    $installer->getTable('product_alert_stock'),
                                                     ['product_id','customer_id','status'],
                                                     \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
                                                 ),

@@ -4,11 +4,11 @@ namespace Dentalkart\Stockalert\Model\Grid;
 
 class Detail extends \Magento\Framework\Model\AbstractModel implements \Dentalkart\Stockalert\Api\Data\InputdataInterface
 {
-	const CACHE_TAG = 'dentalkart_stock_alert';
+	const CACHE_TAG = 'product_alert_stock';
 
-	protected $_cacheTag = 'dentalkart_stock_alert';
+	protected $_cacheTag = 'product_alert_stock';
 
-	protected $_eventPrefix = 'dentalkart_stock_alert';
+	protected $_eventPrefix = 'product_alert_stock';
 
 	protected function _construct()
 	{

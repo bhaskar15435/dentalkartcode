@@ -80,13 +80,13 @@ class CodesRepository implements CodesRepositoryInterface
             $productPriceAttribute= $this->attributeinfo->loadByCode(\Magento\Catalog\Model\Product::ENTITY, \Magento\Catalog\Api\Data\ProductInterface::NAME);
             $productPriceAttributeId = $productPriceAttribute->getAttributeId();
 
-            $collection->getSelect()->join(
-                [
-                    'product_alert' => $collection->getTable('product_alert_stock')
-                ],
-                "product_alert.product_id = main_table.product_id AND AND product_alert.customer_id =main_table.customer_id",
-                []
-                )->columns(['product_add_date' => 'product_alert.add_date']);
+            // $collection->getSelect()->join(
+            //     [
+            //         'product_alert' => $collection->getTable('product_alert_stock')
+            //     ],
+            //     "product_alert.product_id = main_table.product_id AND AND product_alert.customer_id =main_table.customer_id",
+            //     []
+            //     )->columns(['product_add_date' => 'product_alert.add_date']);
 
 
         // $customerAttribute = $this->attributeinfo->loadByCode(\Magento\Customer\Model\Customer::ENTITY, \Magento\Customer\Api\Data\CustomerInterface::FIRSTNAME);
@@ -101,11 +101,11 @@ class CodesRepository implements CodesRepositoryInterface
 
        $collection->getSelect()->join(
             [
-                'product_sku' => $collection->getTable('catalog_product_entity')
+                'product' => $collection->getTable('catalog_product_entity')
             ],
-            "product_sku.entity_id = main_table.product_id ",
+            "product.entity_id = main_table.product_id ",
             []
-            )->columns(['product_sku' => 'product_sku.value']);
+            )->columns(['product_sku' => 'product.sku']);
 
 
                 foreach ($collection as $item){
