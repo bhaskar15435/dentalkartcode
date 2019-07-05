@@ -10,7 +10,7 @@ use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
 use Magento\Framework\GraphQl\Config\Element\Field;
 use Magento\Framework\GraphQl\Query\ResolverInterface;
 use Magento\Framework\GraphQl\Query\Resolver\ValueFactory;
-
+use Magento\Framework\GraphQl\Exception\GraphQlAuthorizationException;
 /**
  * Update customer data resolver
  */
@@ -56,10 +56,6 @@ class Customeralert implements ResolverInterface
                     [\Magento\Customer\Model\Customer::ENTITY]
                 )
             );
-            $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/xyz.log');
-            $logger = new \Zend\Log\Logger();
-            $logger->addWriter($writer);
-            $logger-info("kam ban gaya");
         }
         if (!isset($args['productid'])) {
             throw new GraphQlInputException(__('Required parameter "product id" is missing'));
@@ -68,7 +64,9 @@ class Customeralert implements ResolverInterface
 
           $customer_id = $context->getUserId();
           $stockModel = $this->stockFactory->create();
-          $stockModel->setData('productid',$args['productid'])->setData('status',0)->setData('customer_id',$customer_id)->save();
+          $stockModel->setData('product_id',$args['productid'])->setData('store_id',$this->storeinfo->getStore()->getId())
+            ->setData('website_id',$this->storeinfo->getStore()->getWebsiteId())->setData('customer_id',$customer_id)->save();
+          return ['message'=> 'success'];
         } catch (NoSuchEntityException $exception) {
             throw new GraphQlNoSuchEntityException(__($exception->getMessage()));
         } catch (LocalizedException $exception) {
