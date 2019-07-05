@@ -1,14 +1,16 @@
 <?php
 namespace Dentalkart\StockalertGraphQl\Block;
 
-class StoreInfo extends \Magento\Framework\View\Element\Template
+class Storeinfo extends \Magento\Framework\View\Element\Template
 {
+
+  public $storeManager;
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         array $data = []
     ) {
-        $this->_storeManager = $storeManager;
+        $this->storeManager = $storeManager;
         parent::__construct($context, $data);
     }
 
@@ -17,6 +19,6 @@ class StoreInfo extends \Magento\Framework\View\Element\Template
      */
     public function getStore()
     {
-        return $this->_storeManager->getStore();
+        return $this->storeManager->getStore();
     }
   }

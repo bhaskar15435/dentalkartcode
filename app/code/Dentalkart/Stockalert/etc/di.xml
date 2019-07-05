@@ -7,7 +7,7 @@
             <argument name="mainTable" xsi:type="string">dentalkart_stock_alert</argument>
             <argument name="eventPrefix" xsi:type="string">dentalkart_stock_alert_collection</argument>
             <argument name="eventObject" xsi:type="string">detail_collection</argument>
-          <argument name="resourceModel" xsi:type="string">Dentalkart\Stockalert\Model\ResourceModel\Grid\Detail</argument>
+          <argument name="resourceModel" xsi:type="string">\Dentalkart\Stockalert\ResourceModel\Grid\Dtail</argument>
           <argument name="attributeinfo" xsi:type="object">Magento\Eav\Model\Entity\Attribute</argument>
         </arguments>
     </type>

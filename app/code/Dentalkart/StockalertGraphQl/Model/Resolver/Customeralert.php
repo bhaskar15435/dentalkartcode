@@ -30,7 +30,7 @@ class Customeralert implements ResolverInterface
      * @param ValueFactory $valueFactory
      */
     public function __construct(
-      \Dentalkart\StockalertGraphQl\Block\StoreInfo $storeinfo,
+      \Dentalkart\StockalertGraphQl\Block\Storeinfo $storeinfo,
       \Magento\ProductAlert\Model\StockFactory $stockFactory,
         ValueFactory $valueFactory
     ) {
@@ -49,32 +49,26 @@ class Customeralert implements ResolverInterface
         array $value = null,
         array $args = null
     ) {
-      if ((!$context->getUserId()) || $context->getUserType() == UserContextInterface::USER_TYPE_GUEST) {
+      if ((!$context->getUserId()) || $context->getUserType() == \Magento\Authorization\Model\UserContextInterface::USER_TYPE_GUEST) {
             throw new GraphQlAuthorizationException(
                 __(
                     'Current customer must login first to avail this facility "%1"',
                     [\Magento\Customer\Model\Customer::ENTITY]
                 )
             );
+            $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/xyz.log');
+            $logger = new \Zend\Log\Logger();
+            $logger->addWriter($writer);
+            $logger-info("kam ban gaya");
         }
         if (!isset($args['productid'])) {
             throw new GraphQlInputException(__('Required parameter "product id" is missing'));
         }
-      // date_default_timezone_set('Asia/Calcutta');
-        // if (!isset($args['sku'])) {
-        //     throw new GraphQlInputException(__('Required parameter "sku" is missing'));
-        // }
         try {
-          // $code = $args['input']['code'];
-          //   $message = $args['input']['message'];
-          //   if (isset($args['input']['attachments'])) {
-          //       $attachments = $args['input']['attachments'];
-          //   }
 
           $customer_id = $context->getUserId();
           $stockModel = $this->stockFactory->create();
-          $stockModel->setData('store_id',$this->storeinfo->getstore_id())
-            ->setData('website_id',$this->storeinfo->getwebsite_id())->setData('customer_id',$customer_id)->save();
+          $stockModel->setData('productid',$args['productid'])->setData('status',0)->setData('customer_id',$customer_id)->save();
         } catch (NoSuchEntityException $exception) {
             throw new GraphQlNoSuchEntityException(__($exception->getMessage()));
         } catch (LocalizedException $exception) {
