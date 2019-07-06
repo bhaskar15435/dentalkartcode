@@ -3,7 +3,7 @@
     <update handle="styles"/>
    <body>
        <referenceContainer name="content">
-           <uiComponent name="product_alert_stock_listing"/>
+           <uiComponent name="dentalkart_stock_alert_listing"/>
        </referenceContainer>
    </body>
 </page>

@@ -4,7 +4,7 @@ namespace Dentalkart\Stockalert\Model\ResourceModel\Detail;
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
     protected $_idFieldName = 'id';
-    protected $_eventPrefix = 'product_alert_stock_collection';
+    protected $_eventPrefix = 'dentalkart_stock_alert_collection';
     protected $_eventObject = 'detail_collection';
 
 

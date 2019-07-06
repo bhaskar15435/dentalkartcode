@@ -8,9 +8,9 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
     {
         $installer = $setup;
         $installer->startSetup();
-        if (!$installer->tableExists('product_alert_stock')) {
+        if (!$installer->tableExists('dentalkart_stock_alert')) {
             $table = $installer->getConnection()->newTable(
-                $installer->getTable('product_alert_stock')
+                $installer->getTable('dentalkart_stock_alert')
                 )
                 ->addColumn(
                     'id',
@@ -49,9 +49,9 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                             ->setComment('Detail Table');
                             $installer->getConnection()->createTable($table);
                             $installer->getConnection()->addIndex(
-                                $installer->getTable('product_alert_stock'),
+                                $installer->getTable('dentalkart_stock_alert'),
                                 $setup->getIdxName(
-                                    $installer->getTable('product_alert_stock'),
+                                    $installer->getTable('dentalkart_stock_alert'),
                                     ['product_id','customer_id','status'],
                                     \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
                                 ),

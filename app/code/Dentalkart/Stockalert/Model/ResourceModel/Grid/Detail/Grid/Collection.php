@@ -156,13 +156,13 @@ class Collection extends DetailCollection  implements SearchResultInterface
       []
       )->columns(['product_name' => 'product_varchar.value']);
 
-      // $this->getSelect()->join(
-      //   [
-      //     'product_alert' => $this->getTable('product_alert_stock')
-      //   ],
-      //   "product_alert.product_id = main_table.product_id AND product_alert.customer_id =main_table.customer_id",
-      //   []
-      //   )->columns(['product_add_date' => 'product_alert.add_date']);
+      $this->getSelect()->join(
+        [
+          'product_alert' => $this->getTable('product_alert_stock')
+        ],
+        "product_alert.product_id = main_table.product_id AND product_alert.customer_id =main_table.customer_id",
+        []
+        )->columns(['product_add_date' => 'product_alert.add_date']);
 
 
         $this->getSelect()->join(
@@ -173,11 +173,11 @@ class Collection extends DetailCollection  implements SearchResultInterface
 
           $this->getSelect()->join(
             [
-              'product' => $this->getTable('catalog_product_entity')
+              'product_sku' => $this->getTable('catalog_product_entity')
             ],
-            "product.entity_id = main_table.product_id ",
+            "product_sku.entity_id = main_table.product_id ",
             []
-            )->columns(['product_sku' => 'product.sku']);
+            )->columns(['product_sku' => 'product_sku.sku']);
 
         }
       }
