@@ -1,6 +1,6 @@
 <?php
 \Magento\Framework\Component\ComponentRegistrar::register(
 	\Magento\Framework\Component\ComponentRegistrar::MODULE,
-	'Dentalkart_Popup',
+	'Dentalkart_Customerstockalert',
 	__DIR__
 );
