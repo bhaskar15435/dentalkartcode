@@ -1,5 +1,5 @@
 <?php
-namespace Dentalkart\PricealertGraphQl\Block;
+namespace Dentalkart\SignupAlertGraphQL\Block;
 
 class Storeinfo extends \Magento\Framework\View\Element\Template
 {

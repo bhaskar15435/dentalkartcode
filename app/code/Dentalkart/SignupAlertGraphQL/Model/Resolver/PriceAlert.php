@@ -1,6 +1,6 @@
 <?php
 
-namespace Dentalkart\PricealertGraphQl\Model\Resolver;
+namespace Dentalkart\SignupAlertGraphQL\Model\Resolver;
 
 use Magento\Framework\GraphQl\Exception\GraphQlInputException;
 use Magento\Framework\GraphQl\Exception\GraphQlNoSuchEntityException;
@@ -14,7 +14,7 @@ use Magento\Framework\GraphQl\Exception\GraphQlAuthorizationException;
 /**
  * Update customer data resolver
  */
-class CustomerPriceAlert implements ResolverInterface
+class PriceAlert implements ResolverInterface
 {
 
 
@@ -30,7 +30,7 @@ class CustomerPriceAlert implements ResolverInterface
      * @param ValueFactory $valueFactory
      */
     public function __construct(
-      \Dentalkart\PricealertGraphQl\Block\Storeinfo $storeinfo,
+      \Dentalkart\SignupAlertGraphQL\Block\Storeinfo $storeinfo,
       \Magento\ProductAlert\Model\PriceFactory $priceFactory,
         ValueFactory $valueFactory
     ) {

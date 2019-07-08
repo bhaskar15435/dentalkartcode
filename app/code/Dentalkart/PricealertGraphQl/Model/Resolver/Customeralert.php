@@ -14,7 +14,7 @@ use Magento\Framework\GraphQl\Exception\GraphQlAuthorizationException;
 /**
  * Update customer data resolver
  */
-class CustomerPriceAlert implements ResolverInterface
+class Customeralert implements ResolverInterface
 {
 
 
@@ -23,20 +23,20 @@ class CustomerPriceAlert implements ResolverInterface
 
     private $storeinfo;
 
-    private $PriceFactory;
+    private $stockFactory;
 
     /**
-     * @param AlertPrice $alertPrice
+     * @param Alertstock $alertstock
      * @param ValueFactory $valueFactory
      */
     public function __construct(
       \Dentalkart\PricealertGraphQl\Block\Storeinfo $storeinfo,
-      \Magento\ProductAlert\Model\PriceFactory $priceFactory,
+      \Magento\ProductAlert\Model\StockFactory $stockFactory,
         ValueFactory $valueFactory
     ) {
         $this->valueFactory = $valueFactory;
         $this->storeinfo=$storeinfo;
-        $this->priceFactory=$priceFactory;
+        $this->stockFactory=$stockFactory;
     }
 
     /**
@@ -63,8 +63,8 @@ class CustomerPriceAlert implements ResolverInterface
         try {
 
           $customer_id = $context->getUserId();
-          $priceModel = $this->priceFactory->create();
-          $priceModel->setData('product_id',$args['productid'])->setData('store_id',$this->storeinfo->getStore()->getId())
+          $stockModel = $this->stockFactory->create();
+          $stockModel->setData('product_id',$args['productid'])->setData('store_id',$this->storeinfo->getStore()->getId())
             ->setData('website_id',$this->storeinfo->getStore()->getWebsiteId())->setData('customer_id',$customer_id)->save();
           return ['message'=> 'success'];
         } catch (NoSuchEntityException $exception) {
