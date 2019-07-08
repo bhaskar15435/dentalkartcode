@@ -1,0 +1,9 @@
+type Mutation {
+    subscribeForStockAlert(productid:Int): StockAlert @resolver(class: "Dentalkart\\SignupAlertGraphQl\\Model\\Resolver\\Customeralert") @doc(description:"product ID")
+    subscribeForStockAlert(productid:Int): StockAlert @resolver(class: "Dentalkart\\SignupAlertGraphQl\\Model\\Resolver\\CustomerPriceAlert") @doc(description:"product ID")
+
+}
+
+type StockAlert {
+    message : String
+}
