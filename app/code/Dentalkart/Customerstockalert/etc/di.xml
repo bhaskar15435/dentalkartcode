@@ -1,16 +1,5 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <!-- <preference for="Dentalkart\Stockalert\Api\Data\InputdataInterface" type="Dentalkart\Stockalert\Model\Detail"/>
-    <preference for="Dentalkart\Stockalert\Api\CodesRepositoryInterface" type="Dentalkart\Stockalert\Model\CodesRepository"/> -->
-    <!-- <type name="Dentalkart\Customerstockalert\Model\ResourceModel\Grid\Detail\Grid\Collection">
-        <arguments>
-            <argument name="mainTable" xsi:type="string">product_alert_stock</argument>
-            <argument name="eventPrefix" xsi:type="string">dentalkart_customerstockalert_collection</argument>
-            <argument name="eventObject" xsi:type="string">detail_collection</argument>
-          <argument name="resourceModel" xsi:type="string">Magento\ProductAlert\Model\ResourceModel\Stock</argument>
-          <argument name="attributeinfo" xsi:type="object">Magento\Eav\Model\Entity\Attribute</argument>
-        </arguments>
-    </type> -->
         <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
             <arguments>
                 <argument name="collections" xsi:type="array">
@@ -18,10 +7,10 @@
                 </argument>
             </arguments>
         </type>
-  <!-- <virtualType name="Dentalkart\Customerstockalert\Model\ResourceModel\Grid\DkStock\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+  <!-- <virtualType name="Dentalkart\Customerstockalert\Model\ResourceModel\Grid\DkPrice\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
-            <argument name="mainTable" xsi:type="string">product_alert_stock</argument>
-            <argument name="resourceModel" xsi:type="string">Magento\ProductAlert\Model\ResourceModel\Stock</argument>
+            <argument name="mainTable" xsi:type="string">product_alert_price</argument>
+            <argument name="resourceModel" xsi:type="string">Magento\ProductAlert\Model\ResourceModel\Price</argument>
         </arguments>
     </virtualType> -->
 </config>

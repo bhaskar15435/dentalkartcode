@@ -1,0 +1,8 @@
+type Mutation {
+
+    subscribeForPriceAlert(productid:Int): productidoutput @resolver(class: "Dentalkart\\PricealertGraphQl\\Model\\Resolver\\CustomerPriceAlert") @doc(description:"product ID")
+}
+
+type productidoutput {
+    message : String
+}

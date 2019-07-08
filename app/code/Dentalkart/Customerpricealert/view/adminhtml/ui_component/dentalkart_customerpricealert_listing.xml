@@ -1,8 +1,8 @@
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">dentalkart_customerstockalert_listing.dentalkart_customerstockalert_listing_data_source</item>
-            <item name="deps" xsi:type="string">dentalkart_customerstockalert_listing.dentalkart_customerstockalert_listing_data_source</item>
+            <item name="provider" xsi:type="string">dentalkart_customerpricealert_listing.dentalkart_customerpricealert_listing_data_source</item>
+            <item name="deps" xsi:type="string">dentalkart_customerpricealert_listing.dentalkart_customerpricealert_listing_data_source</item>
         </item>
         <item name="spinner" xsi:type="string">spinner_columns</item>
     </argument>
@@ -10,15 +10,15 @@
     <dataSource name="nameOfDataSource">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
-            <argument name="name" xsi:type="string">dentalkart_customerstockalert_listing_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">alert_stock_id</argument>
-            <argument name="requestFieldName" xsi:type="string">alert_stock_id</argument>
+            <argument name="name" xsi:type="string">dentalkart_customerpricealert_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">alert_price_id</argument>
+            <argument name="requestFieldName" xsi:type="string">alert_price_id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
                     <item name="update_url" xsi:type="url" path="mui/index/render"/>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="indexField" xsi:type="string">alert_stock_id</item>
+                        <item name="indexField" xsi:type="string">alert_price_id</item>
                     </item>
                 </item>
             </argument>

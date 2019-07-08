@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Dentalkart_Customerpricealert::detail" title="Customer priceAlert" module="Dentalkart_Customerpricealert" sortOrder="11" parent="Magento_Catalog::catalog" action="customerpricealert/detail" resource="Dentalkart_Customerpricealert::detail"/>
+    </menu>
+</config>
