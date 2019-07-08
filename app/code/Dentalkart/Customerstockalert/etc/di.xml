@@ -21,7 +21,7 @@
   <!-- <virtualType name="Dentalkart\Customerstockalert\Model\ResourceModel\Grid\DkStock\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">product_alert_stock</argument>
-            <argument name="resourceModel" xsi:type="string">Dentalkart\Customerstockalert\Model\ResourceModel\Grid\DkStock</argument>
+            <argument name="resourceModel" xsi:type="string">Magento\ProductAlert\Model\ResourceModel\Stock</argument>
         </arguments>
     </virtualType> -->
 </config>
