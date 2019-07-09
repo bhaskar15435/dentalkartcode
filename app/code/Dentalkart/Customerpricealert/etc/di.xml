@@ -7,4 +7,18 @@
                 </argument>
             </arguments>
         </type>
+
+        <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+            <arguments>
+                <argument name="collections" xsi:type="array">
+                    <item name="dentalkart_stock_listing_data_source" xsi:type="string">Dentalkart\Customerpricealert\Model\ResourceModel\Grid\DkStock\Grid\Collection</item>
+                </argument>
+            </arguments>
+        </type>
+         <!-- <virtualType name="Dentalkart\Customerpricealert\Model\ResourceModel\Grid\DkStock\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+              <arguments>
+                  <argument name="mainTable" xsi:type="string">product_alert_stock</argument>
+                  <argument name="resourceModel" xsi:type="string">Magento\ProductAlert\Model\ResourceModel\Stock</argument>
+              </arguments>
+           </virtualType> -->
 </config>

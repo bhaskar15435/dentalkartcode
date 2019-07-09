@@ -10,7 +10,11 @@
     <resources>
       <resource id="Magento_Backend::admin">
         <resource id="Magento_Catalog::catalog" title="Catalog" translate="title" sortOrder="40">
-          <resource id="Dentalkart_Customerpricealert::detail" title="Customerpricealert" translate="title" sortOrder="40">
+          <resource id="Dentalkart_Customerpricealert::detail" title="CustomerAlert" translate="title" sortOrder="30">
+          <resource id="Dentalkart_Customerpricealert::stock" title="CustomerPriceAlert" translate="title" sortOrder="40">
+          </resource>
+          <resource id="Dentalkart_Customerpricealert::price" title="CustomerStockAlert" translate="title" sortOrder="30">
+           </resource>
           </resource>
         </resource>
       </resource>

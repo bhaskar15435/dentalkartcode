@@ -5,7 +5,7 @@ return [
         'Magento_Directory' => 1,
         'Magento_Theme' => 1,
         'Dentalkart_Customerpricealert' => 1,
-        'Dentalkart_Customerstockalert' => 1,
+        'Dentalkart_Customerstockalert' => 0,
         'Dentalkart_Feedback' => 1,
         'Dentalkart_Lowstocknotify' => 1,
         'Magento_Inventory' => 0,
