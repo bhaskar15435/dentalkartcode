@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Dentalkart_Customerpricealert::detail" title="Customer priceAlert" module="Dentalkart_Customerpricealert" sortOrder="11" parent="Magento_Catalog::catalog" action="customerpricealert/detail/index" resource="Dentalkart_Customerpricealert::detail"/>
-        <add id="Dentalkart_Customerpricealert::stock" title="Customer StockAlert" module="Dentalkart_Customerpricealert" sortOrder="10" parent="Magento_Catalog::catalog" action="customerpricealert/detail/stock" resource="Dentalkart_Customerpricealert::detail"/>
+        <add id="Dentalkart_Customerpricealert::detail" title="Customer priceAlert" module="Dentalkart_Customerpricealert" sortOrder="11" parent="Magento_Catalog::catalog" action="customerpricealert/detail/index" resource="Dentalkart_Customerpricealert::price"/>
+        <add id="Dentalkart_Customerpricealert::stock" title="Customer StockAlert" module="Dentalkart_Customerpricealert" sortOrder="10" parent="Magento_Catalog::catalog" action="customerpricealert/detail/stock" resource="Dentalkart_Customerpricealert::stock"/>
     </menu>
 </config>
