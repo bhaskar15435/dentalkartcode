@@ -1,5 +1,5 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
-    <type name="Magento\CatalogInventory\Api\RegisterProductSaleInterface">
-        <plugin name="product_Qty_Notification" type="Dentalkart\Lowstocknotify\Plugin\notifier" />
+    <type name="Dentalkart\PricealertGraphQl\Model\Resolver\Customeralert">
+        <plugin name="product_stock" type="Dentalkart\Stockdemo\Plugin\Stockalert" />
     </type>
 </config>

@@ -154,13 +154,14 @@ class Collection extends DetailCollection  implements SearchResultInterface
       "product_varchar.entity_id = main_table.product_id AND product_varchar.attribute_id={$productNameAttributeId}",
       []
       )->columns(['product_name' => 'product_varchar.value']);
-
+      $this->addFilterToMap('product_name','product_varchar.value');
         $this->getSelect()->join(
           ['customer' => $this->getTable('customer_entity')],
           "customer.entity_id = main_table.customer_id ",
           []
           )->columns(['customer_name' => 'customer.firstname','customer_email' => 'customer.email']);
-
+          $this->addFilterToMap('customer_name','customer.firstname');
+          $this->addFilterToMap('customer_email','customer.email');
           $this->getSelect()->join(
             [
               'product' => $this->getTable('catalog_product_entity')
@@ -168,7 +169,7 @@ class Collection extends DetailCollection  implements SearchResultInterface
             "product.entity_id = main_table.product_id ",
             []
             )->columns(['product_sku' => 'product.sku']);
-
+            $this->addFilterToMap('product_sku','product.sku');
 
         }
       }
