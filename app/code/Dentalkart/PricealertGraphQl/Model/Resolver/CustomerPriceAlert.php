@@ -31,11 +31,13 @@ class CustomerPriceAlert implements ResolverInterface
      */
     public function __construct(
       \Dentalkart\PricealertGraphQl\Block\Storeinfo $storeinfo,
+      \Magento\Catalog\Model\ProductFactory $productFactory,
       \Magento\ProductAlert\Model\PriceFactory $priceFactory,
         ValueFactory $valueFactory
     ) {
         $this->valueFactory = $valueFactory;
         $this->storeinfo=$storeinfo;
+        $this->productFactory=$productFactory;
         $this->priceFactory=$priceFactory;
     }
 
@@ -63,9 +65,10 @@ class CustomerPriceAlert implements ResolverInterface
         try {
 
           $customer_id = $context->getUserId();
+          $price=$this->productFactory->create()->load($args['productid'])->getPrice();
           $priceModel = $this->priceFactory->create();
           $priceModel->setData('product_id',$args['productid'])->setData('store_id',$this->storeinfo->getStore()->getId())
-            ->setData('website_id',$this->storeinfo->getStore()->getWebsiteId())->setData('customer_id',$customer_id)->save();
+            ->setData('website_id',$this->storeinfo->getStore()->getWebsiteId())->setData('customer_id',$customer_id)->setData('price',$price)->save();
           return ['message'=> 'success'];
         } catch (NoSuchEntityException $exception) {
             throw new GraphQlNoSuchEntityException(__($exception->getMessage()));
