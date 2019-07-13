@@ -1,8 +1,5 @@
 <?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
+
 namespace Dentalkart\Stockfilter\Ui\DataProvider\Product;
 
 use Magento\Framework\Data\Collection;
