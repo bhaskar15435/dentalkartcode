@@ -1,0 +1,50 @@
+type Query {
+    country(id: String!): Country @resolver(class: "Dentalkart\\DirectoryGraphQl\\Model\\Resolver\\GetCountry") @doc(description: "Get country and state by id.")
+    countries: [Country] @resolver(class: "Dentalkart\\DirectoryGraphQl\\Model\\Resolver\\GetCountries") @doc(description: "Get country and state information.")
+    currencies: Currencies @resolver(class: "Dentalkart\\DirectoryGraphQl\\Model\\Resolver\\GetCurrencies") @doc(description: "Get currency and exchange rate information.")
+    baseCountry: BaseCountry @resolver(class: "Dentalkart\\DirectoryGraphQl\\Model\\Resolver\\GetBaseCountry") @doc(description: "Base country to render application")
+}
+
+type Mutation {
+    setCurrency(country_code: String!): CountryCurrency @resolver(class: "\\Dentalkart\\DirectoryGraphQl\\Model\\Resolver\\SetCurrency")
+}
+
+type CountryCurrency {
+    country_code: String
+    currency_code: String
+}
+
+type Country {
+    id: String
+    two_letter_abbreviation: String
+    three_letter_abbreviation: String
+    full_name_locale: String
+    full_name_english: String
+    available_regions: [Regions]
+}
+
+type Regions {
+    id: String
+    code: String
+    name: String
+}
+
+type Currencies {
+    base_currency_code: String
+    base_currency_symbol: String
+    default_display_currency_code: String
+    default_display_currency_symbol: String
+    available_currency_codes: [String]
+    exchange_rates: [CurrencyRates]
+}
+
+type CurrencyRates {
+    currency_to: String,
+    rate: Float,
+}
+
+type BaseCountry {
+    country_id: String,
+    country: String
+    currency_code: String
+}

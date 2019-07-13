@@ -19,6 +19,7 @@ return [
         'Dentalkart_Systemconfig' => 1,
         'Magento_Backend' => 1,
         'Emizentech_ShopByBrand' => 1,
+        'Emizentech_ShopByBrandGraphQl' => 1,
         'Magento_Eav' => 1,
         'Magento_AdminNotification' => 1,
         'Magento_Indexer' => 1,

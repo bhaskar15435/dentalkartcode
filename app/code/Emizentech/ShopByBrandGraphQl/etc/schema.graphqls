@@ -1,0 +1,13 @@
+type Query {
+	GetBrandName(
+  id:Int @doc(description:"attribute_id"),
+  brand: String @doc(description: "name of the brand")
+  ): Brand @resolver(class:"\\Emizentech\\ShopByBrandGraphQl\\Model\\Resolver\\GetBrandName") @doc(description:"brand name")
+}
+
+type Brand {
+  name : String
+  url : String
+  logo : String
+  categoryid : Int
+}
