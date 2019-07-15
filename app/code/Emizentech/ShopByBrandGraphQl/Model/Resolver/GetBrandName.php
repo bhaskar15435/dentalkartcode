@@ -62,12 +62,12 @@ class GetBrandName implements ResolverInterface
         $brandmodel->addFieldToFilter('attribute_id',$args['id']);
       }
 
-      $brandmodel->getFirstItem();
+
       if(!$brandmodel->getSize()){
         throw new GraphQlNoSuchEntityException(__("Brand doesn't exist."));
       }
-      return $brandmodel->getData();
 
+      return $brandmodel->getFirstItem()->getData();
     }
     catch (NoSuchEntityException $exception) {
       throw new GraphQlNoSuchEntityException(__($exception->getMessage()));
