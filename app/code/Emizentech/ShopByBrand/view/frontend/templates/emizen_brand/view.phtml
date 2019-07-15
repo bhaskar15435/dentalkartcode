@@ -1,4 +1,4 @@
-<?php 
+<?php
 $brand = $this->getBrand();
 $productCollection = $this->getCollection();
 $imagewidth = '200';
@@ -23,8 +23,8 @@ $type = 'widget-new-grid';
 	$iterator = 1; ?>
     <?php
 	foreach($productCollection as $_product): ?>
-    
-    
+
+
      <?php /* @escapeNotVerified */
 		echo ($iterator++ == 1) ? '<li class="product-item">' : '</li><li class="product-item">' ?>
                         <div class="product-item-info">
@@ -51,9 +51,9 @@ $type = 'widget-new-grid';
                                 <?php
 		echo $this->getProductPricetoHtml($_product, $type);
 ?>
-                                 
+
                                     <div class="product-item-actions">
-                                       
+
                                             <div class="actions-primary">
                                                 <?php
 		if ($_product->isSaleable()): ?>
@@ -98,11 +98,11 @@ $type = 'widget-new-grid';
                                                 <?php
 		endif; ?>
                                             </div>
-                                       
-                                       
+
+
                                     </div>
-                             
-                            </div>    
+
+                            </div>
        </div>
      			<?php
 		echo ($iterator == count($productCollection) + 1) ? '</li>' : '' ?>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 $brands = $this->getBrands();
 $featured = $this->getFeaturedBrands();
 $media = $this->getImageMediaPath();
@@ -15,7 +15,7 @@ $media = $this->getImageMediaPath();
 <h3>Featured Brands</h3>
 <div class="featured-brands">
 <?php foreach($featured as $_fbrand):?>
-	
+
 	<span>
 			<?php if($_fbrand->getUrlKey()):?>
 				<a href="<?php echo $this->getUrl('brand').$_fbrand->getUrlKey()?>">
@@ -35,7 +35,7 @@ $media = $this->getImageMediaPath();
 </div>
 <br />
 <h3>ALL Brands</h3>
-<?php  
+<?php
 foreach (range('0', '9') as $char) :?>
 	<?php if(isset($brands[$char])):?>
 		<div class="brand-char">
@@ -54,7 +54,7 @@ foreach (range('0', '9') as $char) :?>
 		</div>
 	<?php endif;?>
 <?php endforeach;?>
-<?php  
+<?php
 foreach (range('A', 'Z') as $char) :?>
 	<?php if(isset($brands[$char])):?>
 		<div class="brand-char">

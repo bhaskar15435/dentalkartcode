@@ -7,7 +7,7 @@ $brands = $this->getBrands();
         <strong id="block-compare-heading" role="heading" aria-level="2"><?php echo __('Shop By Brand');?>:</strong>
     </div>
     <ul class="items">
-    	<?php  
+    	<?php
 	foreach (range('0', '9') as $char) :?>
 		<?php if(isset($brands[$char])):?>
 			<div class="brand-char-sidebar">
@@ -24,7 +24,7 @@ $brands = $this->getBrands();
 			</div>
 		<?php endif;?>
 	<?php endforeach;?>
-	<?php  
+	<?php
 	foreach (range('A', 'Z') as $char) :?>
 		<?php if(isset($brands[$char])):?>
 			<div class="brand-char-sidebar">

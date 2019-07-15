@@ -23,7 +23,7 @@ After that, need to install this module as follows:
 
 <br/>
 <h2> Mannual Installation Instructions</h2>
-go to Magento2Project root dir 
+go to Magento2Project root dir
 create following Directory Structure :<br/>
 <strong>/Magento2Project/app/code/Emizentech/ShopByBrand</strong>
 you can also create by following command:

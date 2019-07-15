@@ -100,26 +100,26 @@ class Main extends Generic implements TabInterface
             'text',
             ['name' => 'name', 'label' => __('Brand Name'), 'title' => __('Brand Name'), 'required' => true]
         );
-        
+
         $fieldset->addField(
             'sort_order',
             'text',
             ['name' => 'sort_order', 'label' => __('Sort Order'), 'title' => __('Sort Order'), 'required' => false]
         );
-        
+
         $fieldset->addField(
             'url_key',
             'text',
             ['name' => 'url_key', 'label' => __('Url Key'), 'title' => __('Url Key'), 'required' => false]
         );
-        
-        
+
+
         $fieldset->addField(
             'logo',
             'image',
             ['name' => 'logo', 'label' => __('logo'), 'title' => __('logo'), 'required' => false ,  'disabled' => $isElementDisabled]
         );
-        
+
          $fieldset->addField(
             'is_active',
             'select',
@@ -132,7 +132,7 @@ class Main extends Generic implements TabInterface
                  'disabled' => $isElementDisabled
             ]
         );
-        
+
          $fieldset->addField(
             'featured',
             'select',
@@ -145,8 +145,8 @@ class Main extends Generic implements TabInterface
                  'disabled' => $isElementDisabled
             ]
         );
-        
-        
+
+
         $form->setValues($model->getData());
         $this->setForm($form);
         return parent::_prepareForm();

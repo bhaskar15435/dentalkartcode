@@ -54,9 +54,9 @@ class Save extends \Emizentech\ShopByBrand\Controller\Adminhtml\Items
 			if(isset($data['logo']['value']) && strlen($data['logo']['value']) > 1)
                         	$data['logo'] = $data['logo']['value'];
 
-                
-                
-                
+
+
+
                 $model->setData($data);
                 $session = $this->_objectManager->get('Magento\Backend\Model\Session');
                 $session->setPageData($model->getData());

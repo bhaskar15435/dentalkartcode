@@ -4,7 +4,7 @@ use Magento\Catalog\Model\Product\Attribute\Source\Status;
 
 class View extends \Magento\Framework\View\Element\Template
 {
-	
+
 	/**
      * @var \Magento\Framework\App\Http\Context
      */
@@ -15,14 +15,14 @@ class View extends \Magento\Framework\View\Element\Template
      * @var \Magento\Catalog\Model\Product\Visibility
      */
     protected $_catalogProductVisibility;
-    
+
 	/**
      * Product collection factory
      *
      * @var \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory
      */
     protected $_productCollectionFactory;
-    
+
     /**
      * Image helper
      *
@@ -61,8 +61,8 @@ class View extends \Magento\Framework\View\Element\Template
     {
 			return $this->_cartHelper->getAddUrl($product, $additional);
     }
-    
-    
+
+
     public function _prepareLayout()
     {
         parent::_prepareLayout();
@@ -76,7 +76,7 @@ class View extends \Magento\Framework\View\Element\Template
             ->setCollection($this->getCollection());
         $this->setChild('pager', $pager);
         $this->getCollection()->load();
- 
+
         return $this;
     }
 	/**
@@ -86,7 +86,7 @@ class View extends \Magento\Framework\View\Element\Template
     {
         return $this->getChildHtml('pager');
     }
-    
+
     public function getBrand(){
 	   //  $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 //     	$model = $objectManager->create(
@@ -94,7 +94,7 @@ class View extends \Magento\Framework\View\Element\Template
 //         )->setEntityTypeId(
 //             \Magento\Catalog\Model\Product::ENTITY
 //         );
-// 
+//
 // 		$model->loadByCode(\Magento\Catalog\Model\Product::ENTITY,'manufacturer');
 // 		return $model->getOptions();
 		$id = $this->getRequest()->getParam('id');
@@ -106,7 +106,7 @@ class View extends \Magento\Framework\View\Element\Template
 		}
 		return false;
     }
-    
+
     public function getProductCollection()
     {
     	$brand = $this->getBrand();
@@ -116,20 +116,20 @@ class View extends \Magento\Framework\View\Element\Template
 //     	die;
 		$collection->addAttributeToSelect('name');
     	$collection->addStoreFilter()->addAttributeToFilter('manufacturer' , $brand->getAttributeId());
-    	
+
     	$collection->addAttributeToFilter('status', Status::STATUS_ENABLED);
     	$collection->addAttributeToFilter('visibility', array('neq' => \Magento\Catalog\Model\Product\Visibility::VISIBILITY_NOT_VISIBLE));
 
-    	
-    	
+
+
 //     	var_dump(count($collection));
     	return $collection;
     }
-    
+
     public function imageHelperObj(){
         return $this->_imageHelper;
     }
-    
+
     public function getProductPricetoHtml(
         \Magento\Catalog\Model\Product $product,
         $priceType = null
