@@ -27,6 +27,7 @@ class GetBrandName implements ResolverInterface
   */
   public function __construct(
     \Emizentech\ShopByBrand\Model\BrandFactory $itemFactory
+
   ) {
     $this->itemFactory=$itemFactory;
   }
@@ -44,8 +45,11 @@ class GetBrandName implements ResolverInterface
 
     try
     {
-      $brandmodel=$this->itemFactory->create()->getcollection();
+      $brandmodel=$this->itemFactory->create()->getCollection();
+      $brandmodel->getSelect()->joinLeft(['ccev'=> 'catalog_category_entity_varchar'],'ccev.entity_id = main_table.category_id and ccev.attribute_id = 43', ['url_key' => 'ccev.value']);
+      $brandmodel->getSelect()->joinLeft(['path'=>'catalog_category_entity_varchar'],'path.entity_id=main_table.category_id and path.attribute_id=57',['url_path'=>'path.value']);
       $brandmodel->addFieldToFilter('is_active', 1);
+
       if(!empty($args['name'])){
         $brandmodel->addFieldToFilter('name', $args['name']);
       }

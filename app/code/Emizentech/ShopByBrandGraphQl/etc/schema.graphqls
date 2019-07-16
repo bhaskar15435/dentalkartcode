@@ -14,4 +14,5 @@ type Brand {
   logo : String
 	category_id: Int
 	featured:String
+	url_path:String
 }

@@ -15,15 +15,15 @@ class UpgradeSchema implements UpgradeSchemaInterface
      */
     public function upgrade(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
-        if (version_compare($context->getVersion(), '0.2.3') < 0) {
+        if (version_compare($context->getVersion(), '0.2.4') < 0) {
             $connection = $setup->getConnection();
             $connection->addColumn(
                 $setup->getTable('emizentech_shopbybrand_items'),
-                'category_id',
+                'url_path',
                 [
-                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                     'nullable' => true,
-                    'comment' => 'category Id'
+                    'comment' => 'URL Path'
                 ]
             );
         }
