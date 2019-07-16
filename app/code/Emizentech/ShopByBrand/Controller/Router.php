@@ -1,6 +1,6 @@
 <?php
 namespace Emizentech\ShopByBrand\Controller;
- 
+
 /**
  * Inchoo Custom router Controller Router
  *
@@ -12,26 +12,29 @@ class Router implements \Magento\Framework\App\RouterInterface
      * @var \Magento\Framework\App\ActionFactory
      */
     protected $actionFactory;
- 
+
     /**
      * Response
      *
      * @var \Magento\Framework\App\ResponseInterface
      */
     protected $_response;
- 
+
     /**
      * @param \Magento\Framework\App\ActionFactory $actionFactory
      * @param \Magento\Framework\App\ResponseInterface $response
      */
     public function __construct(
         \Magento\Framework\App\ActionFactory $actionFactory,
-        \Magento\Framework\App\ResponseInterface $response
+        \Magento\Framework\App\ResponseInterface $response,
+        \Magento\Catalog\Model\ResourceModel\Category\CollectionFactory $collectionFactory
+
     ) {
         $this->actionFactory = $actionFactory;
         $this->_response = $response;
+        $this->collectionFactory=$collectionFactory;
     }
- 
+
     /**
      * Validate and Match
      *
@@ -46,7 +49,7 @@ class Router implements \Magento\Framework\App\RouterInterface
          * -exampletocms will set front name to cms, controller path to page and action to view
          */
        //  $identifier = trim($request->getPathInfo(), '/');
-//         
+//
 //         if(strpos($identifier, 'exampletocms') !== false) {
 //         return;
 //             /*
@@ -63,7 +66,7 @@ class Router implements \Magento\Framework\App\RouterInterface
 //             //There is no match
 //             return;
 //         }
-//  
+//
 //         /*
 //          * We have match and now we will forward action
 //          */
@@ -76,12 +79,12 @@ class Router implements \Magento\Framework\App\RouterInterface
 		 $identifier = trim($request->getPathInfo(), '/');
 
         if(strpos($identifier, 'brand/view/index/id') !== false) {
-                // called via id 
+                // called via id
                 return null ;
         }
 		else if(strpos($identifier, 'brand/') !== false) {
-			$patharr = explode("/",$identifier);
-            $urlpath = end($patharr);
+			// $patharr = explode("/",$identifier);
+      //       $urlpath = end($patharr);
             $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 			$modelcollection = $objectManager->get('\Emizentech\ShopByBrand\Model\BrandFactory')->create()->getCollection();
 			$modelcollection->addFieldToFilter('url_key' , $urlpath);
@@ -95,7 +98,7 @@ class Router implements \Magento\Framework\App\RouterInterface
 			}
 			else
 			{
-							// not found any URL Key                
+							// not found any URL Key
 					return null;
 			}
 
