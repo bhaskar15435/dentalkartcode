@@ -149,7 +149,7 @@ class Collection extends DetailCollection  implements SearchResultInterface
     $productNameAttributeId = 73;
     $this->getSelect()->join(
       [
-        'product_varchar' => $this->getTable('catalog_product_entity_varchar')
+        'product_varchar' => $this->getTable('catalog_product_entity_text')
       ],
       "product_varchar.entity_id = main_table.product_id AND product_varchar.attribute_id={$productNameAttributeId}",
       []
